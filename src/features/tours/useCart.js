@@ -15,6 +15,7 @@ export const useCart = () => {
     }
   
     return {
+        cartCounter: cart.length,
         cartTotal,
         addToCart,
         deleteFromCart

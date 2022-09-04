@@ -9,6 +9,7 @@ import { useCart } from './useCart.js';
 function Tours() {
 
     const {
+        cartCounter,
         cartTotal,
         addToCart,
         deleteFromCart
@@ -41,6 +42,7 @@ function Tours() {
                         className={styles.cart}
                         fontSize={'large'}
                     />
+                    {cartCounter > 0 ? <span className={styles.counter}>{cartCounter}</span>: null}
                 </div>
             </div>
             <section className={styles.toursContainer}>
