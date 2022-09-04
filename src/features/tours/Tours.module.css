@@ -56,3 +56,12 @@ h2 {
     width: 100%;
     margin: 0 auto;
 }
+
+/** STYLES ONLY FOR DESKTOP USERS **/
+@media only screen and (min-width: 900px){
+    .toursContainer{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

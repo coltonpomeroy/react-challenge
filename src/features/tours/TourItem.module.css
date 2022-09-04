@@ -51,3 +51,10 @@ button.delete:hover {
     color: white;
     cursor: pointer;
 }
+
+/** STYLES ONLY FOR DESKTOP USERS **/
+@media only screen and (min-width: 900px){
+    .tourItem {
+        max-width: 300px;
+    }
+}
