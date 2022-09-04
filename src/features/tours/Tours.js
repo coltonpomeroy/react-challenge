@@ -5,6 +5,7 @@ import { MenuItem, Select } from '@mui/material';
 import styles from './Tours.module.css';
 import { ShoppingCartRounded } from '@mui/icons-material';
 import { useCart } from './useCart.js';
+import { useCurrency } from './useCurrency.js';
 
 function Tours() {
 
@@ -15,8 +16,15 @@ function Tours() {
         deleteFromCart
     } = useCart();
 
+    const {
+        currency,
+        getCurrencyConversion,
+        setCurrency 
+    } = useCurrency();
+
     const handleChange = (event) => {
-        console.log(event.target.value);
+        setCurrency(event.target.value);
+        console.log({event})
     }
 
     return (
@@ -27,8 +35,8 @@ function Tours() {
                     <Select
                         labelId="currency-label"
                         id="currency"
-                        value={0}
                         label="Currency"
+                        value={currency}
                         onChange={handleChange}
                         className={styles.dropdown}
                     >
@@ -37,7 +45,7 @@ function Tours() {
                     </Select>
                 </div>
                 <div className={styles.cartContainer}>
-                    {cartTotal > 0 ? <span className={styles.cartTotal}>${cartTotal}</span>: null}
+                    {cartTotal > 0 ? <span className={styles.cartTotal}>{getCurrencyConversion(cartTotal)}</span>: null}
                     <ShoppingCartRounded 
                         className={styles.cart}
                         fontSize={'large'}
